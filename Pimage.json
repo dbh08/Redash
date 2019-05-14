@@ -28,8 +28,8 @@
       "script": "ubuntu_install.sh"
     },
     {
-      "type": "shell",
-      "inline": ["sync"]
+      "type": "ansible",
+      "playbook-file": "base_redash.yml"
     }
   ]
 }
