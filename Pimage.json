@@ -1,0 +1,35 @@
+{
+   "variables": {
+    "SCALEWAY_ORGANIZATION": "{{env `SCALEWAY_ORGANIZATION`}}",
+    "api_token": "{{env `SCW_TOKEN`}}",
+    "image": "d02c83e4-4c22-40c7-85db-0b7f7e5c51d7",
+    "ssh_private": "{{env `HOME`}}/.ssh/id_rsa"
+  },
+
+
+  "builders": [
+    {
+      "api_access_key": "{{ user `SCALEWAY_ORGANIZATION` }}",
+      "api_token": "{{ user `api_token` }}",
+      "server_name": "scw-jovial-cohen",
+      "image_name": "dbhpacker-image",
+      "snapshot_name": "dbhpacker-image-snapshot",
+      "image": "{{ user `image` }}",
+      "region": "ams1",
+      "commercial_type": "START1-S",
+      "ssh_private_key_file": "{{ user `ssh_private` }}",
+      "type": "scaleway",
+      "ssh_username": "root"
+    }
+  ],
+  "provisioners": [
+    {
+      "type": "shell",
+      "script": "ubuntu_install.sh"
+    },
+    {
+      "type": "shell",
+      "inline": ["sync"]
+    }
+  ]
+}
