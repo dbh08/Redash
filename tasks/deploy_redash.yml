@@ -1,0 +1,17 @@
+---
+- hosts: all
+  tasks:
+    - name: deploy redash 
+    shell: docker-compose -f docker-compose.yml run --rm server create_db
+   
+
+    - name : run redash 
+    shell : docker-compose -f docker-compose.yml up
+    
+
+    - name : run redash
+    shell : open http://127.0.0.1:5000/
+
+
+
+...

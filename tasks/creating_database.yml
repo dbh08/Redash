@@ -1,0 +1,17 @@
+---
+- name: Creating application database user
+  become_user: postgres
+  postgresql_user:
+    name: redash
+    password: NULL
+    role_attr_flags: NOCREATEDB,NOSUPERUSER
+
+- name: Creating application database
+  become_user: postgres
+  postgresql_db:
+    name: redash
+    owner: redash
+    state: present
+
+
+...

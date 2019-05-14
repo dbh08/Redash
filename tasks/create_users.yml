@@ -1,0 +1,7 @@
+---
+- name: Creating Redash user
+  user:
+    name: redash
+    system: yes
+    createhome: no
+    

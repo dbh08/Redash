@@ -1,0 +1,7 @@
+---
+- include: create_users.yml
+- include: deploy_redash.yml
+- include: base_redash.yml
+- include: creating_database.yml
+
+...

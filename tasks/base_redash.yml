@@ -1,0 +1,12 @@
+---
+- hosts: all
+  tasks:
+  - name: clone a private repository
+    git: 
+      repo=ssh://git@github.com/getredash/redash
+      key_file=/root/.ssh/id_rsa.github
+      dest=/Users/ADMIN/Desktop/RedashProject
+
+
+...
+
