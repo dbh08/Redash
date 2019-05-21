@@ -24,12 +24,13 @@
   ],
   "provisioners": [
     {
-      "type": "shell",
-      "script": "ubuntu_install.sh"
+       "type": "ansible",
+      "playbook-file": "base_redash.yml"
     },
     {
-      "type": "ansible",
-      "playbook-file": "base_redash.yml"
+       "type": "shell",
+      "inline": ["sync"]
+    
     }
   ]
 }
